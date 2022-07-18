@@ -1,0 +1,16 @@
+@import '../../styles/functions/mixins';
+@import '../../styles/base/variables';
+
+.filterOptions{
+  background-color: $black;
+  color: $white;
+  outline: none;
+  border: none;
+  border-radius: 0%;
+  width: 200px;
+  option{
+      padding: 1rem 2rem;
+      font-weight: 800;
+      width: 100%;
+  }
+}

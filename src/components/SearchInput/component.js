@@ -14,7 +14,6 @@ function SearchInput(props) {
           onChange={onChange}
           value={value}
           id={formId}
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...inputProps}
         />
       </label>

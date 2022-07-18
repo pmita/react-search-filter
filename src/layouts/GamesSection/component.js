@@ -4,6 +4,9 @@ import { useFetch } from '../../hooks/useFetch';
 // COMPONENTS
 import GamesGrid from '../../components/GamesGrid/component';
 import SearchInput from '../../components/SearchInput/component';
+import GamesCategories from '../../components/GamesCategories';
+// ASSETS
+import { categories } from '../../assets/util';
 // STYLES
 import './style.scss';
 
@@ -18,8 +21,8 @@ function GamesSection() {
   // EVENTS
   const onChange = useCallback((e) => {
     setSearchInput(e.target.value);
-    // eslint-disable-next-line max-len
-    const searchedGames = games.filter((game) => game.gameName.toLowerCase().includes(e.target.value.toLowerCase()));
+    const searchedGames = games.filter((game) => (
+      game.gameName.toLowerCase().includes(e.target.value.toLowerCase())));
     setShowData(searchedGames);
   }, [games, setSearchInput, setShowData]);
 
@@ -27,6 +30,15 @@ function GamesSection() {
     setSearchInput('');
     setShowData(games);
   }, [games, setSearchInput, setShowData]);
+
+  const handleFilter = useCallback((e) => {
+    if (e.target.value === 'all') {
+      setShowData(games);
+    } else {
+      const filteredGames = games.filter((game) => game.categories.includes(e.target.value));
+      setShowData(filteredGames);
+    }
+  }, [games, setShowData]);
 
   return (
     <>
@@ -38,6 +50,10 @@ function GamesSection() {
           onClick={onClick}
           value={searchInput}
           formId="searchbar-input"
+        />
+        <GamesCategories
+          onChange={handleFilter}
+          options={categories}
         />
       </nav>
       <div className="games-section">
