@@ -1,0 +1,8 @@
+// CSS ASSETS
+@import './base/variables';
+@import './abstract/global';
+@import './functions/mixins';
+
+.App{
+    background: $white;
+}
