@@ -1,0 +1,8 @@
+@import '../../styles/functions/mixins';
+
+.games-section{
+  min-height: 90vh;
+  width: 100%;
+  @include flex(row, center, center);
+  padding: 5rem;
+}

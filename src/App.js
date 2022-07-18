@@ -1,10 +1,12 @@
+// COMPONENTS
+import GamesSection from './layouts/GamesSection/component';
 // STYLES
 import './styles/App.scss';
 
 function App() {
   return (
     <div className="App">
-      <h1>Test</h1>
+      <GamesSection />
     </div>
   );
 }
