@@ -27,6 +27,7 @@
             "exports": "never",
             "functions": "never"
         }],
-        "react/forbid-prop-types": [1, { "forbid": ["any", "object"]}]
+        "react/forbid-prop-types": [1, { "forbid": ["any", "object"]}],
+        "react/jsx-props-no-spreading": "off"
     }
 }
