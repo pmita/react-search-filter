@@ -41,6 +41,6 @@ export const useFetch = (url) => {
   }, [url]);
 
   return {
-    isPending, error, data, showData
+    isPending, error, data, showData, setShowData
   };
 };
