@@ -1,0 +1,21 @@
+@import '../../styles/functions/mixins';
+
+.games-grid{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: 320px;
+  gap: 1rem;
+}
+
+.game-card{
+  width: 100%;
+  height: 100%;
+  @include flex(column, space-evenly, center);
+  img{
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
