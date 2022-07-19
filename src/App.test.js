@@ -1,8 +1,14 @@
-// import { render, screen } from '@testing-library/react';
-// import App from './App';
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/Search here/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+test('should render searchbar on mount', () => {
+  render(<App />);
+  const searchBar = screen.getByPlaceholderText('Search here...');
+  expect(searchBar).toBeInTheDocument();
+});
+
+test('should render categories dropdown on mount', () => {
+  render(<App />);
+  const dropdownInput = screen.getByTestId('select');
+  expect(dropdownInput).toBeInTheDocument();
+});
