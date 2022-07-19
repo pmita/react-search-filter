@@ -17,6 +17,7 @@ function GamesSection() {
     data: games, showData: showGames, setShowData, isPending, error
   } = useFetch(url);
   const [searchInput, setSearchInput] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   // EVENTS
   const onChange = useCallback((e) => {
@@ -32,6 +33,7 @@ function GamesSection() {
   }, [games, setSearchInput, setShowData]);
 
   const handleFilter = useCallback((e) => {
+    setSelectedCategory(e.target.value);
     if (e.target.value === 'all') {
       setShowData(games);
     } else {
@@ -53,6 +55,7 @@ function GamesSection() {
         />
         <GamesCategories
           onChange={handleFilter}
+          value={selectedCategory}
           options={categories}
         />
       </nav>
