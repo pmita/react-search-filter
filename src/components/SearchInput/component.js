@@ -5,32 +5,39 @@ import './style.scss';
 function SearchInput(props) {
   // STATE & VARIABLES
   const {
-    value, onChange, onClick, formId, ...inputProps
+    value, onClick, formId, ...inputProps
   } = props;
   return (
     <div className="search-input">
       <label htmlFor={formId}>
         <input
-          onChange={onChange}
-          value={value}
           id={formId}
           {...inputProps}
         />
       </label>
-      {value && <button className="btn primary" type="submit" onClick={onClick}>Clear</button>}
+      {value && (
+        <button
+          className="btn primary"
+          type="submit"
+          onClick={onClick}
+          data-testid="cancel-button"
+        >
+          Clear
+        </button>
+      )}
     </div>
   );
 }
 
 SearchInput.propTypes = {
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   formId: PropTypes.string
 };
 
 SearchInput.defaultProps = {
   value: '',
+  onClick: () => {},
   formId: ''
 };
 
